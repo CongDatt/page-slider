@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Page Slider</title>
+</head>
+<body>
+    <header>
+        <a href="https://www.facebook.com/trancongdat21012000" class="logo">Cong Datt</a>
+        <ul>
+            <li>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Store</a>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </header>
+    <section class="banner">
+        <div class="imgBx">
+            <img src="img1.jpg" class="active" >
+            <img src="img2.jpg" >
+            <img src="img3.jpg" >
+            <img src="img4.jpg" >
+        </div>
+        <ul class="controls">
+            <li onclick="preSlide();"></li>
+            <li onclick="nextSlide();"></li>
+        </ul>
+    </section>
+    <script type="text/javascript"> 
+        const imgBx = document.querySelector('.imgBx');
+        const slides = imgBx.getElementsByTagName('img');
+        var i = 0;
+        function nextSlide(){
+            slides[i].classList.remove('active');
+            i = (i + 1) % slides.length;
+            slides[i].classList.add('active');
+        }
+        function preSlide(){
+            slides[i].classList.remove('active');
+            i = (i - 1 + slides.length) % slides.length;
+            slides[i].classList.add('active');
+        }
+    </script>
+</body>
+</html>
